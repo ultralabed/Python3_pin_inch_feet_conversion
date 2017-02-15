@@ -4,16 +4,16 @@ from tkinter import ttk
 window=tk.Tk()
 
 def convert_pin():
-    pin_to_inches()
+    pin_to_feets()
     pin_to_square_meters()
 
-def pin_to_inches():
-    inch2=float(e1_value.get())*35.583
+def pin_to_feets():
+    inch2=round(float(e1_value.get())*35.587, 3)
     t1.delete('1.0', tk.END)
     t1.insert(tk.END, inch2)
 
 def pin_to_square_meters():
-    m2=float(e1_value.get())*3.3058
+    m2=round(float(e1_value.get())*3.305, 3)
     t2.delete('1.0', tk.END)
     t2.insert(tk.END, m2)
 
@@ -39,18 +39,18 @@ t2.grid(row=2, column=1)
 
 ttk.Separator(window,orient='horizontal').grid(row=3, columnspan=3, sticky="ew")
 
-# Conver square_meters_to_inches_and_pin
+# Conver square_meters_to_feets_and_pin
 def convert_m2():
-    m2_to_inches()
+    m2_to_feets()
     m2_to_pin()
 
-def m2_to_inches():
-    inch2=float(e3_value.get())*10.76
+def m2_to_feets():
+    inch2=round(float(e3_value.get())*10.76, 3)
     t4.delete('1.0', tk.END)
     t4.insert(tk.END, inch2)
 
 def m2_to_pin():
-    pin=float(e3_value.get())/3.3058
+    pin=round(float(e3_value.get())/3.305, 3)
     t5.delete('1.0', tk.END)
     t5.insert(tk.END, pin)
 
@@ -76,22 +76,22 @@ t5.grid(row=6, column=1)
 
 ttk.Separator(window,orient='horizontal').grid(row=7, columnspan=3, sticky="ew")
 
-# Conver inche2_to_m2_and_pin
-def convert_inches():
-    inches_to_m2()
-    inches_to_pin()
+# Conver feet2_to_m2_and_pin
+def convert_feets():
+    feets_to_m2()
+    feets_to_pin()
 
-def inches_to_m2():
-    m2=float(e6_value.get())*0.09
+def feets_to_m2():
+    m2=round(float(e6_value.get())*0.093, 3)
     t7.delete('1.0', tk.END)
     t7.insert(tk.END, m2)
 
-def inches_to_pin():
-    pin=float(e6_value.get())/35.583
+def feets_to_pin():
+    pin=round(float(e6_value.get())/35.587, 3)
     t8.delete('1.0', tk.END)
     t8.insert(tk.END, pin)
 
-b6=tk.Button(window, text="轉換", command=convert_inches)
+b6=tk.Button(window, text="轉換", command=convert_feets)
 b6.grid(row=8, column=2)
 
 l6=tk.Label(window, text="平方英呎")
