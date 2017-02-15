@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import ttk
 
 window=tk.Tk()
 
@@ -35,5 +36,79 @@ l2=tk.Label(window, text="平方公尺")
 l2.grid(row=2, column=0)
 t2=tk.Text(window, height=1, width=20)
 t2.grid(row=2, column=1)
+
+ttk.Separator(window,orient='horizontal').grid(row=3, columnspan=3, sticky="ew")
+
+# Conver square_meters_to_inches_and_pin
+def convert_m2():
+    m2_to_inches()
+    m2_to_pin()
+
+def m2_to_inches():
+    inch2=float(e3_value.get())*10.76
+    t4.delete('1.0', tk.END)
+    t4.insert(tk.END, inch2)
+
+def m2_to_pin():
+    pin=float(e3_value.get())/3.3058
+    t5.delete('1.0', tk.END)
+    t5.insert(tk.END, pin)
+
+b3=tk.Button(window, text="轉換", command=convert_m2)
+b3.grid(row=4, column=2)
+
+l3=tk.Label(window, text="平方公尺")
+l3.grid(row=4, column=0)
+
+e3_value=tk.StringVar()
+e3=tk.Entry(window, textvariable=e3_value)
+e3.grid(row=4, column=1)
+
+l4=tk.Label(window, text="平方英呎")
+l4.grid(row=5, column=0)
+t4=tk.Text(window, height=1, width=20)
+t4.grid(row=5, column=1)
+
+l5=tk.Label(window, text="坪")
+l5.grid(row=6, column=0)
+t5=tk.Text(window, height=1, width=20)
+t5.grid(row=6, column=1)
+
+ttk.Separator(window,orient='horizontal').grid(row=7, columnspan=3, sticky="ew")
+
+# Conver inche2_to_m2_and_pin
+def convert_inches():
+    inches_to_m2()
+    inches_to_pin()
+
+def inches_to_m2():
+    m2=float(e6_value.get())*0.09
+    t7.delete('1.0', tk.END)
+    t7.insert(tk.END, m2)
+
+def inches_to_pin():
+    pin=float(e6_value.get())/35.583
+    t8.delete('1.0', tk.END)
+    t8.insert(tk.END, pin)
+
+b6=tk.Button(window, text="轉換", command=convert_inches)
+b6.grid(row=8, column=2)
+
+l6=tk.Label(window, text="平方英呎")
+l6.grid(row=8, column=0)
+
+e6_value=tk.StringVar()
+e6=tk.Entry(window, textvariable=e6_value)
+e6.grid(row=8, column=1)
+
+l7=tk.Label(window, text="平方公尺")
+l7.grid(row=9, column=0)
+t7=tk.Text(window, height=1, width=20)
+t7.grid(row=9, column=1)
+
+l8=tk.Label(window, text="坪")
+l8.grid(row=10, column=0)
+t8=tk.Text(window, height=1, width=20)
+t8.grid(row=10, column=1)
 
 window.mainloop()
