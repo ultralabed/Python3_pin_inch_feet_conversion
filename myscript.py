@@ -5,7 +5,7 @@ from tkinter import StringVar
 window=tk.Tk()
 
 lan='english'
-
+eleWidth=11
 
 calfootage2="坪" if lan == 'chinese' else "Square footage"
 calmeter2="平方公尺" if lan == 'chinese' else "Square meters"
@@ -38,22 +38,22 @@ def pin_to_square_meters():
     t2.delete('1.0', tk.END)
     t2.insert(tk.END, m2)
 
-b0=tk.Button(window, text=converBtn, command=convert_pin)
+b0=tk.Button(window, text=converBtn, command=convert_pin, width=eleWidth)
 b0.grid(row=0, column=2)
 
-l0=tk.Label(window, text=calfootage2)
+l0=tk.Label(window, text=calfootage2, width=eleWidth)
 l0.grid(row=0, column=0)
 
 e1_value=tk.StringVar()
 e1=tk.Entry(window, textvariable=e1_value)
 e1.grid(row=0, column=1)
 
-l1=tk.Label(window, text=calfeet2)
+l1=tk.Label(window, text=calfeet2, width=eleWidth)
 l1.grid(row=1, column=0)
 t1=tk.Text(window, height=1, width=20)
 t1.grid(row=1, column=1)
 
-l2=tk.Label(window, text=calmeter2)
+l2=tk.Label(window, text=calmeter2, width=eleWidth)
 l2.grid(row=2, column=0)
 t2=tk.Text(window, height=1, width=20)
 t2.grid(row=2, column=1)
@@ -75,22 +75,22 @@ def m2_to_pin():
     t5.delete('1.0', tk.END)
     t5.insert(tk.END, pin)
 
-b3=tk.Button(window, text=converBtn, command=convert_m2)
+b3=tk.Button(window, text=converBtn, command=convert_m2, width=eleWidth)
 b3.grid(row=4, column=2)
 
-l3=tk.Label(window, text=calmeter2)
+l3=tk.Label(window, text=calmeter2, width=eleWidth)
 l3.grid(row=4, column=0)
 
 e3_value=tk.StringVar()
 e3=tk.Entry(window, textvariable=e3_value)
 e3.grid(row=4, column=1)
 
-l4=tk.Label(window, text=calfeet2)
+l4=tk.Label(window, text=calfeet2, width=eleWidth)
 l4.grid(row=5, column=0)
 t4=tk.Text(window, height=1, width=20)
 t4.grid(row=5, column=1)
 
-l5=tk.Label(window, text=calfootage2)
+l5=tk.Label(window, text=calfootage2, width=eleWidth)
 l5.grid(row=6, column=0)
 t5=tk.Text(window, height=1, width=20)
 t5.grid(row=6, column=1)
@@ -112,22 +112,22 @@ def feets_to_pin():
     t8.delete('1.0', tk.END)
     t8.insert(tk.END, pin)
 
-b6=tk.Button(window, text=converBtn, command=convert_feets)
+b6=tk.Button(window, text=converBtn, command=convert_feets, width=eleWidth)
 b6.grid(row=8, column=2)
 
-l6=tk.Label(window, text=calfeet2)
+l6=tk.Label(window, text=calfeet2, width=eleWidth)
 l6.grid(row=8, column=0)
 
 e6_value=tk.StringVar()
 e6=tk.Entry(window, textvariable=e6_value)
 e6.grid(row=8, column=1)
 
-l7=tk.Label(window, text=calmeter2)
+l7=tk.Label(window, text=calmeter2, width=eleWidth)
 l7.grid(row=9, column=0)
 t7=tk.Text(window, height=1, width=20)
 t7.grid(row=9, column=1)
 
-l8=tk.Label(window, text=calfootage2)
+l8=tk.Label(window, text=calfootage2, width=eleWidth)
 l8.grid(row=10, column=0)
 t8=tk.Text(window, height=1, width=20)
 t8.grid(row=10, column=1)
@@ -144,11 +144,11 @@ def chagneLanCh():
     lan='chinese'
     changeLan()
 
-l9=tk.Label(window, text=language)
+l9=tk.Label(window, text=language, width=eleWidth)
 l9.grid(row=12, column=0)
-btnEnglish=tk.Button(window, text=lanBtnEn, command=chagneLanEn)
+btnEnglish=tk.Button(window, text=lanBtnEn, command=chagneLanEn, width=eleWidth)
 btnEnglish.grid(row=12, column=1)
-btnChinese=tk.Button(window, text=lanBtnCh, command=chagneLanCh)
+btnChinese=tk.Button(window, text=lanBtnCh, command=chagneLanCh, width=eleWidth)
 btnChinese.grid(row=12, column=2)
 
 window.mainloop()
