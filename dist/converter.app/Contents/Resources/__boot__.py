@@ -76,6 +76,6 @@ def _setup_ctypes():
 _setup_ctypes()
 
 
-DEFAULT_SCRIPT='converter.py'
+DEFAULT_SCRIPT='Converter.py'
 SCRIPT_MAP={}
 _run()
