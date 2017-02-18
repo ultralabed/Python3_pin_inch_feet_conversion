@@ -2,10 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import StringVar
 
-window=tk.Tk()
-
-lan='english'
-eleWidth=11
+lan='chinese'
 
 calfootage2="坪" if lan == 'chinese' else "Square footage"
 calmeter2="平方公尺" if lan == 'chinese' else "Square meters"
@@ -14,6 +11,13 @@ converBtn="轉換" if lan == 'chinese' else "convert"
 language="語系" if lan == 'chinese' else "Language"
 lanBtnEn="英文" if lan == 'chinese' else "English"
 lanBtnCh="中文" if lan == 'chinese' else "Chinese"
+test1="面積換算器" if lan == 'chinese' else "Transformation Area Converter"
+
+window=tk.Tk()
+window.title(test1)
+window.minsize(width=425, height=135)
+window.maxsize(width=425, height=135)
+eleWidth=11
 
 def changeLan():
     l1["text"]=calfootage2="坪" if lan == 'chinese' else "Square footage"
@@ -23,6 +27,8 @@ def changeLan():
     l0["text"]=language="語系" if lan == 'chinese' else "Language"
     btnEnglish["text"]=lanBtnEn="英文" if lan == 'chinese' else "English"
     btnChinese["text"]=lanBtnCh="中文" if lan == 'chinese' else "Chinese"
+    test1="面積換算器" if lan == 'chinese' else "Converter"
+    window.title(test1)
 
 def chagneLanEn():
     global lan
@@ -42,6 +48,7 @@ btnChinese=tk.Button(window, text=lanBtnCh, command=chagneLanCh, width=eleWidth)
 btnChinese.grid(row=0, column=2)
 
 def convert_square_footage():
+
     feets=round(float(e1_value.get())*35.587, 3)
     e3.delete(0, tk.END)
     e3.insert(0, feets)
@@ -99,5 +106,8 @@ e3.grid(row=4, column=1)
 
 b3=tk.Button(window, text=converBtn, command=convert_square_feets, width=eleWidth)
 b3.grid(row=4, column=2)
+
+l4=tk.Label(window, text='Made by Ed Shih', width=eleWidth)
+l4.grid(row=5, column=2)
 
 window.mainloop()
