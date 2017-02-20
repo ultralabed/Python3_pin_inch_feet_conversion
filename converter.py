@@ -15,10 +15,10 @@ test1="面積換算器" if lan == 'chinese' else "Transformation Area Converter"
 
 window=tk.Tk()
 window.title(test1)
-window.minsize(width=415, height=135)
-window.maxsize(width=415, height=135)
-eleWidth=12
-eleEntryWidth=14
+window.minsize(width=470, height=135)
+window.maxsize(width=470, height=135)
+eleWidth=14
+eleEntryWidth=16
 
 def changeLan():
     l1["text"]=calfootage2="坪" if lan == 'chinese' else "Square footage"
@@ -49,32 +49,34 @@ btnChinese=tk.Button(window, text=lanBtnCh, command=chagneLanCh, width=eleWidth)
 btnChinese.grid(row=0, column=2)
 
 def convert_square_footage():
+    if(e1_value.get() != ''):
+        feets=round(float(e1_value.get())*35.583185317, 3)
+        e3.delete(0, tk.END)
+        e3.insert(0, feets)
 
-    feets=round(float(e1_value.get())*35.583185317, 3)
-    e3.delete(0, tk.END)
-    e3.insert(0, feets)
-
-    m2=round(float(e1_value.get())*3.3057862168, 3)
-    e2.delete(0, tk.END)
-    e2.insert(0, m2)
+        m2=round(float(e1_value.get())*3.3057862168, 3)
+        e2.delete(0, tk.END)
+        e2.insert(0, m2)
 
 def convert_square_meters():
-    feets=round(float(e2_value.get())*10.76391, 3)
-    e3.delete(0, tk.END)
-    e3.insert(0, feets)
+    if(e2_value.get() != ''):
+        feets=round(float(e2_value.get())*10.76391, 3)
+        e3.delete(0, tk.END)
+        e3.insert(0, feets)
 
-    pin=round(float(e2_value.get())*0.3024999, 3)
-    e1.delete(0, tk.END)
-    e1.insert(0, pin)
+        pin=round(float(e2_value.get())*0.3024999, 3)
+        e1.delete(0, tk.END)
+        e1.insert(0, pin)
 
 def convert_square_feets():
-    m2=round(float(e3_value.get())*0.0929030436, 3)
-    e2.delete(0, tk.END)
-    e2.insert(0, m2)
+    if(e3_value.get() != ''):
+        m2=round(float(e3_value.get())*0.0929030436, 3)
+        e2.delete(0, tk.END)
+        e2.insert(0, m2)
 
-    pin=round(float(e3_value.get())*0.0281031614, 3)
-    e1.delete(0, tk.END)
-    e1.insert(0, pin)
+        pin=round(float(e3_value.get())*0.0281031614, 3)
+        e1.delete(0, tk.END)
+        e1.insert(0, pin)
 
 ttk.Separator(window,orient='horizontal').grid(row=1, columnspan=3, sticky="ew")
 
