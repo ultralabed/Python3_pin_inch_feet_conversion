@@ -15,9 +15,10 @@ test1="面積換算器" if lan == 'chinese' else "Transformation Area Converter"
 
 window=tk.Tk()
 window.title(test1)
-window.minsize(width=425, height=135)
-window.maxsize(width=425, height=135)
-eleWidth=11
+window.minsize(width=415, height=135)
+window.maxsize(width=415, height=135)
+eleWidth=12
+eleEntryWidth=14
 
 def changeLan():
     l1["text"]=calfootage2="坪" if lan == 'chinese' else "Square footage"
@@ -40,8 +41,8 @@ def chagneLanCh():
     lan='chinese'
     changeLan()
 
-l0=tk.Label(window, text=language, width=eleWidth)
-l0.grid(row=0, column=0)
+l0=tk.Label(window, text=language, width=eleWidth, anchor='w')
+l0.grid(row=0, column=0, padx=10)
 btnEnglish=tk.Button(window, text=lanBtnEn, command=chagneLanEn, width=eleWidth)
 btnEnglish.grid(row=0, column=1)
 btnChinese=tk.Button(window, text=lanBtnCh, command=chagneLanCh, width=eleWidth)
@@ -77,31 +78,31 @@ def convert_square_feets():
 
 ttk.Separator(window,orient='horizontal').grid(row=1, columnspan=3, sticky="ew")
 
-l1=tk.Label(window, text=calfootage2, width=eleWidth)
+l1=tk.Label(window, text=calfootage2, width=eleWidth, anchor='w')
 l1.grid(row=2, column=0)
 
 e1_value=tk.StringVar()
-e1=tk.Entry(window, textvariable=e1_value)
+e1=tk.Entry(window, textvariable=e1_value, width=eleEntryWidth)
 e1.grid(row=2, column=1)
 
 b1=tk.Button(window, text=converBtn, command=convert_square_footage, width=eleWidth)
 b1.grid(row=2, column=2)
 
-l2=tk.Label(window, text=calmeter2, width=eleWidth)
+l2=tk.Label(window, text=calmeter2, width=eleWidth, anchor='w')
 l2.grid(row=3, column=0)
 
 e2_value=tk.StringVar()
-e2=tk.Entry(window, textvariable=e2_value)
+e2=tk.Entry(window, textvariable=e2_value, width=eleEntryWidth)
 e2.grid(row=3, column=1)
 
 b2=tk.Button(window, text=converBtn, command=convert_square_meters, width=eleWidth)
 b2.grid(row=3, column=2)
 
-l3=tk.Label(window, text=calfeet2, width=eleWidth)
+l3=tk.Label(window, text=calfeet2, width=eleWidth, anchor='w')
 l3.grid(row=4, column=0)
 
 e3_value=tk.StringVar()
-e3=tk.Entry(window, textvariable=e3_value)
+e3=tk.Entry(window, textvariable=e3_value, width=eleEntryWidth)
 e3.grid(row=4, column=1)
 
 b3=tk.Button(window, text=converBtn, command=convert_square_feets, width=eleWidth)
