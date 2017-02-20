@@ -50,29 +50,29 @@ btnChinese.grid(row=0, column=2)
 
 def convert_square_footage():
 
-    feets=round(float(e1_value.get())*35.587, 3)
+    feets=round(float(e1_value.get())*35.583185317, 3)
     e3.delete(0, tk.END)
     e3.insert(0, feets)
 
-    m2=round(float(e1_value.get())*3.305, 3)
+    m2=round(float(e1_value.get())*3.3057862168, 3)
     e2.delete(0, tk.END)
     e2.insert(0, m2)
 
 def convert_square_meters():
-    feets=round(float(e2_value.get())*10.76, 3)
+    feets=round(float(e2_value.get())*10.76391, 3)
     e3.delete(0, tk.END)
     e3.insert(0, feets)
 
-    pin=round(float(e2_value.get())/3.305, 3)
+    pin=round(float(e2_value.get())*0.3024999, 3)
     e1.delete(0, tk.END)
     e1.insert(0, pin)
 
 def convert_square_feets():
-    m2=round(float(e3_value.get())*0.093, 3)
+    m2=round(float(e3_value.get())*0.0929030436, 3)
     e2.delete(0, tk.END)
     e2.insert(0, m2)
 
-    pin=round(float(e3_value.get())/35.587, 3)
+    pin=round(float(e3_value.get())*0.0281031614, 3)
     e1.delete(0, tk.END)
     e1.insert(0, pin)
 
