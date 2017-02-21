@@ -15,8 +15,8 @@ test1="面積換算器" if lan == 'chinese' else "Transformation Area Converter"
 
 window=tk.Tk()
 window.title(test1)
-window.minsize(width=470, height=135)
-window.maxsize(width=470, height=135)
+window.geometry('430x135+30+0')
+window.resizable(False, False)
 eleWidth=14
 eleEntryWidth=16
 
