@@ -2,55 +2,34 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import StringVar
 from tkinter import messagebox
-
-lan='chinese'
-
-calfootage2="坪" if lan == 'chinese' else "Square footage"
-calmeter2="平方公尺" if lan == 'chinese' else "Square meters"
-calfeet2="平方英呎" if lan == 'chinese' else "Square feets"
-converBtn="轉換" if lan == 'chinese' else "convert"
-language="語系" if lan == 'chinese' else "Language"
-lanBtnEn="英文" if lan == 'chinese' else "English"
-lanBtnCh="中文" if lan == 'chinese' else "Chinese"
-title="面積換算器" if lan == 'chinese' else "Transformation Area Converter"
-warningMsg="請填入至少一個數字" if lan == 'chinese' else "Please enter at least one number for convertion"
+from tkinter import OptionMenu
 
 window=tk.Tk()
+lan = StringVar(window)
+lan.set("中文") # default value
+
+calfootage2="坪" if lan.get() == '中文' else "Square footage"
+calmeter2="平方公尺" if lan.get() == '中文' else "Square meters"
+calfeet2="平方英呎" if lan.get() == '中文' else "Square feets"
+converBtn="轉換" if lan.get() == '中文' else "convert"
+title="面積換算器" if lan.get() == '中文' else "Transformation Area Converter"
+warningMsg="請填入至少一個數字" if lan.get() == '中文' else "Please enter at least one number for convertion"
+
 window.title(title)
-window.geometry('430x135+30+0')
+window.geometry('430x115+30+0')
 window.resizable(False, False)
 eleWidth=14
 eleEntryWidth=16
 
-def changeLan():
-    l1["text"]=calfootage2="坪" if lan == 'chinese' else "Square footage"
-    l2["text"]=calmeter2="平方公尺" if lan == 'chinese' else "Square meters"
-    l3["text"]=calfeet2="平方英呎" if lan == 'chinese' else "Square feets"
-    b1["text"]=b2["text"]=b3["text"]=converBtn="轉換" if lan == 'chinese' else "convert"
-    l0["text"]=language="語系" if lan == 'chinese' else "Language"
-    btnEnglish["text"]=lanBtnEn="英文" if lan == 'chinese' else "English"
-    btnChinese["text"]=lanBtnCh="中文" if lan == 'chinese' else "Chinese"
-    title="面積換算器" if lan == 'chinese' else "Converter"
+def changeLan(self):
+    l1["text"]=calfootage2="坪" if lan.get() == '中文' else "Square footage"
+    l2["text"]=calmeter2="平方公尺" if lan.get() == '中文' else "Square meters"
+    l3["text"]=calfeet2="平方英呎" if lan.get() == '中文' else "Square feets"
+    b1["text"]=b2["text"]=b3["text"]=converBtn="轉換" if lan.get() == '中文' else "convert"
+    title="面積換算器" if lan.get() == '中文' else "Converter"
     global warningMsg
-    warningMsg="請填入至少一個數字" if lan == 'chinese' else "Please enter at least one number for convertion"
+    warningMsg="請填入至少一個數字" if lan.get() == '中文' else "Please enter at least one number for convertion"
     window.title(title)
-
-def chagneLanEn():
-    global lan
-    lan='english'
-    changeLan()
-
-def chagneLanCh():
-    global lan
-    lan='chinese'
-    changeLan()
-
-l0=tk.Label(window, text=language, width=eleWidth, anchor='w')
-l0.grid(row=0, column=0, padx=10)
-btnEnglish=tk.Button(window, text=lanBtnEn, command=chagneLanEn, width=eleWidth)
-btnEnglish.grid(row=0, column=1)
-btnChinese=tk.Button(window, text=lanBtnCh, command=chagneLanCh, width=eleWidth)
-btnChinese.grid(row=0, column=2)
 
 def convert_square_footage():
     if(e1_value.get() != ''):
@@ -88,10 +67,8 @@ def convert_square_feets():
     else:
         messagebox.showinfo(message=warningMsg)
 
-ttk.Separator(window,orient='horizontal').grid(row=1, columnspan=3, sticky="ew")
-
 l1=tk.Label(window, text=calfootage2, width=eleWidth, anchor='w')
-l1.grid(row=2, column=0)
+l1.grid(row=2, column=0, padx=10)
 
 e1_value=tk.StringVar()
 e1=tk.Entry(window, textvariable=e1_value, width=eleEntryWidth)
@@ -122,5 +99,8 @@ b3.grid(row=4, column=2)
 
 l4=tk.Label(window, text='Made by Ed Shih', width=eleWidth)
 l4.grid(row=5, column=2)
+
+dropdown0 = OptionMenu(window, lan, "English", "中文", command=changeLan)
+dropdown0.grid(row=5, column=0, sticky="w")
 
 window.mainloop()
