@@ -1,5 +1,9 @@
-# python3_pin_inch_feet_conversion
+# Python3_pin_inch_feet_conversion
 
-## In this project, you can calculate the square meter, square feets and Square footage relationship. ##
+### App Features ###
 
-## There is a executable file in dist folder for mac user to run it directly. ##
+    * Convert values between square meters, feets and footages
+    
+    * Support English and 中文
+    
+    * It is a desktop app built in python
